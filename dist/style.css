@@ -1,0 +1,464 @@
+:root {
+  --system-color-bolts: hsla(240, 100%, 91%, 1);
+  --system-color-dark: hsla(0, 0%, 0%, 1);
+  --system-color-eyes: hsla(26, 100%, 40%, 1);
+  --system-color-filter: hsla(207, 66%, 32%, 0.1);
+  --system-color-flash: hsla(240, 100%, 91%, 0.3);
+  --system-color-glow: hsla(210, 1%, 90%, 1);
+  --system-color-light: hsla(0, 0%, 100%, 1);
+  --system-color-stroke: hsla(340, 6%, 13%, 1);
+  --system-color-tongue: hsla(345, 42%, 65%, 1);
+  --system-color-twinkle: hsla(180, 100%, 88%, 0.5);
+}
+
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  height: 100dvh;
+  width: 100dvw;
+
+  background: var(--system-color-dark);
+
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+
+  -moz-image-rendering: auto;
+  -ms-image-rendering: auto;
+  -o-image-rendering: auto;
+  image-rendering: auto;
+
+  & .cloud {
+    position: relative;
+
+    height: 70dvmin;
+    width: 70dvmin;
+
+    -webkit-animation: cloud-reflection 4s cubic-bezier(0.27, -0.33, 0.68, 1.32)
+        infinite,
+      cloud-move 10s ease-out infinite;
+    animation: cloud-reflection 4s cubic-bezier(0.27, -0.33, 0.68, 1.32)
+        infinite,
+      cloud-move 10s ease-out infinite;
+
+    & .cloud__container {
+      inline-size: 100%;
+
+      -webkit-animation: flashbang 4s cubic-bezier(0.27, -0.33, 0.68, 1.32)
+        infinite;
+      animation: flashbang 4s cubic-bezier(0.27, -0.33, 0.68, 1.32) infinite;
+
+      & :is(.character__stain-1, .character__stain-2) {
+        -webkit-animation: flashbang 4s cubic-bezier(0.27, -0.33, 0.68, 1.32)
+          infinite;
+        animation: flashbang 4s cubic-bezier(0.27, -0.33, 0.68, 1.32) infinite,
+          shine 4s cubic-bezier(0.27, -0.33, 0.68, 1.32) infinite;
+      }
+
+      & .character__rightEyebrow {
+        animation: frown-right 4s cubic-bezier(0.27, -0.33, 0.68, 1.32) infinite;
+
+        /* ✑ rotation glitch fixing */
+        transform-box: fill-box;
+        transform-origin: 50% 50%;
+        -webkit-transform-origin: 50% 50%;
+      }
+
+      & .character__leftEyebrow {
+        animation: frown-left 4s cubic-bezier(0.27, -0.33, 0.68, 1.32) infinite;
+
+        /* ✑ rotation glitch fixing */
+
+        transform-box: fill-box;
+        transform-origin: 50% 50%;
+        -webkit-transform-origin: 50% 50%;
+      }
+
+      & :is(.leftEye, .rightEye) {
+        /* ✑ rotation glitch fixing */
+
+        transform-box: fill-box;
+        transform-origin: 50% 50%;
+        -webkit-transform-origin: 50% 50%;
+
+        animation: look 10s ease-in-out infinite;
+      }
+
+      & :is(.leftEye__iris, .rightEye__iris) {
+        -webkit-animation: blink-eyes 4s cubic-bezier(0.27, -0.33, 0.68, 1.32)
+          infinite;
+
+        animation: blink-eyes 4s cubic-bezier(0.27, -0.33, 0.68, 1.32) infinite;
+      }
+
+      & :is(.figure, .outline, .bolts) {
+        /* ✑ rotation glitch fixing */
+
+        transform-box: fill-box;
+        transform-origin: 50% 50%;
+        -webkit-transform-origin: 50% 50%;
+
+        animation: cloud-sway 10s linear infinite;
+      }
+
+      & .bolts {
+        animation: shine 4s cubic-bezier(0.27, -0.33, 0.68, 1.32) infinite;
+
+        & .bolts__rightOut {
+          animation: thunder 1.35s cubic-bezier(0.27, -0.33, 0.68, 1.32)
+            infinite;
+          -webkit-animation: thunder 1.35s cubic-bezier(0.27, -0.33, 0.68, 1.32)
+            infinite;
+        }
+
+        & .bolts__leftOut {
+          animation: thunder 1.9s cubic-bezier(0.27, -0.33, 0.68, 1.32) infinite;
+          -webkit-animation: thunder 1.9s cubic-bezier(0.27, -0.33, 0.68, 1.32)
+            infinite;
+        }
+
+        & .bolts__leftIn {
+          animation: thunder 1.5s cubic-bezier(0.27, -0.33, 0.68, 1.32) infinite;
+          -webkit-animation: thunder 1.5s cubic-bezier(0.27, -0.33, 0.68, 1.32)
+            infinite;
+        }
+
+        & .bolts__rightIn {
+          animation: thunder 1.25s cubic-bezier(0.27, -0.33, 0.68, 1.32)
+            infinite;
+          -webkit-animation: thunder 1.25s cubic-bezier(0.27, -0.33, 0.68, 1.32)
+            infinite;
+        }
+      }
+
+      & .wrapper {
+        animation: rain-opacity 5s ease-in-out infinite;
+
+        & .wrapper__rain {
+          -webkit-fill: url(#systemGradient);
+          fill: url(#systemGradient);
+
+          -webkit-filter: blur(0.032dvmin);
+          filter: blur(0.032dvmin);
+
+          animation: rainfall 0.3s linear infinite;
+          -webkit-animation: rainfall 0.3s linear infinite;
+        }
+      }
+    }
+  }
+
+  & .parallax {
+    position: absolute;
+
+    height: 100dvh;
+    width: 100dvw;
+
+    & .parallax__scenery-1 {
+      position: absolute;
+
+      z-index: -2;
+
+      width: 100%;
+      height: 100%;
+
+      background: var(--system-color-dark)
+        url("./assets/parallax-picture-front.webp")
+        repeat-x 50% 100%;
+
+      animation: vista 4s cubic-bezier(0.27, -0.33, 0.68, 1.32) infinite,
+        parallax-front 10s cubic-bezier(0.97, -0.01, 0, 1.02) infinite;
+      -webkit-animation: vista 4s cubic-bezier(0.27, -0.33, 0.68, 1.32) infinite,
+        parallax-front 10s cubic-bezier(0.97, -0.01, 0, 1.02) infinite;
+    }
+
+    & .parallax__scenery-2 {
+      position: absolute;
+      z-index: -3;
+
+      width: 100%;
+      height: 100%;
+
+      background: var(--system-color-dark)
+        url("./assets/parallax-picture-back.webp")
+        repeat-x 50% 100%;
+
+      animation: vista 4s cubic-bezier(0.27, -0.33, 0.68, 1.32) infinite,
+        parallax-back 10s cubic-bezier(0.97, -0.01, 0, 1.02) infinite;
+      -webkit-animation: vista 4s cubic-bezier(0.27, -0.33, 0.68, 1.32) infinite,
+        parallax-back 10s cubic-bezier(0.97, -0.01, 0, 1.02) infinite;
+    }
+
+    & .parallax__scenery-3 {
+      position: absolute;
+      z-index: -1;
+
+      width: 100%;
+      height: 100%;
+
+      background: var(--system-color-filter);
+      mix-blend-mode: screen;
+
+      filter: saturate(200%) contrast(200%);
+      -webkit-filter: saturate(200%) contrast(200%);
+    }
+  }
+}
+
+/*
+  
+    ▀▄▀▄▀▄▀▄▀▄▀▄ ANIMATIONS ▀▄▀▄▀▄▀▄▀▄▀▄
+  
+    */
+
+@keyframes cloud-sway {
+  0%,
+  100% {
+    transform: rotateZ(-8deg) rotateY(0) scale(1);
+  }
+
+  25%,
+  75% {
+    transform: rotateZ(4deg) rotateY(15deg) scale(0.9);
+  }
+
+  50% {
+    transform: rotateZ(-8deg) rotateY(0) scale(1);
+  }
+}
+
+@keyframes cloud-move {
+  0%,
+  100% {
+    inset: auto auto auto -35%;
+  }
+
+  50% {
+    inset: auto auto auto 35%;
+  }
+}
+
+/* lighting */
+
+@keyframes flashbang {
+  0%,
+  100% {
+    filter: drop-shadow(0dvmin 0dvmin 3.2dvmin var(--system-color-light))
+      drop-shadow(0dvmin 0dvmin 9.6dvmin var(--system-color-light));
+  }
+
+  50% {
+    filter: drop-shadow(0dvmin 0dvmin 3.2dvmin var(--system-color-flash));
+  }
+}
+
+@keyframes shine {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes cloud-reflection {
+  0%,
+  100% {
+    filter: blur(0.1dvmin);
+  }
+
+  50% {
+    filter: blur(0);
+  }
+}
+
+@keyframes blink-eyes {
+  50% {
+    fill: var(--system-color-eyes);
+  }
+}
+
+@keyframes look {
+  0%,
+  100% {
+    transform: rotateZ(-30deg);
+  }
+
+  50% {
+    transform: rotateZ(30deg);
+  }
+}
+
+@keyframes frown-left {
+  0%,
+  100% {
+    transform: translate3d(0rem, -0.1563rem, 0rem);
+
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
+  }
+}
+
+@keyframes frown-right {
+  0%,
+  100% {
+    transform: translate3d(0rem, -0.1563rem, 0rem);
+
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
+  }
+}
+
+@keyframes thunder {
+  from {
+    transform: scale(1);
+
+    filter: blur(0.2dvmin);
+  }
+
+  to {
+    transform: scale(0.7);
+
+    filter: blur(0.4dvmin);
+  }
+}
+
+@keyframes rainfall {
+  from {
+    transform: rotateY(35deg) translate3d(1.1rem, 0rem, 0rem);
+  }
+
+  to {
+    transform: rotateY(35deg) translate3d(1.1rem, 5rem, 0rem);
+  }
+}
+
+@keyframes rain-opacity {
+  0% {
+    transform: scale(1);
+
+    opacity: 0.2;
+  }
+
+  25% {
+    transform: scale(0.9);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+
+    opacity: 0.1;
+  }
+}
+
+@keyframes vista {
+  0%,
+  100% {
+    opacity: 1;
+
+    filter: blur(1dvmin);
+  }
+
+  50% {
+    opacity: 0.4;
+
+    filter: blur(0);
+  }
+}
+
+@keyframes parallax-front {
+  0%,
+  100% {
+    transform: scale(1);
+
+    background-position: bottom 0 left 150rem;
+  }
+
+  50% {
+    transform: scale(1.2);
+
+    background-position: bottom 0 left 0;
+  }
+}
+
+@keyframes parallax-back {
+  0%,
+  100% {
+    background-position: bottom 0rem left 75rem;
+  }
+
+  50% {
+    background-position: bottom 0 left 0;
+  }
+}
+
+/*** ◰ media queries ***/
+/** 4K Ultra HD **/
+
+/*
+    @media (min-width: 1921px) {
+      & .parallax {
+        & .parallax__scenery-1 {
+          background: url("#")
+            repeat-x 50% 100%;
+        }
+    
+        & .parallax__scenery-2 {
+          background: url("#")
+            repeat-x 50% 100%;
+        }
+      }
+    }
+  */
+
+/** 8K Ultra HD **/
+
+/*
+  
+    @media (min-width: 3841px) {
+      
+      & .parallax {
+        & .parallax__scenery-1 {
+          background: url("#")
+            repeat-x 50% 100%;
+        }
+    
+       
+        & .parallax__scenery-2 {
+          background: url("#")
+            repeat-x 50% 100%;
+        }
+      }
+    }
+  */
