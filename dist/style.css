@@ -175,8 +175,8 @@ body {
 
       z-index: -2;
 
-      width: 100%;
-      height: 100%;
+      width: inherit;
+      height: inherit;
 
       background: var(--system-color-dark)
         url("./assets/parallax-picture-front.webp")
@@ -192,8 +192,8 @@ body {
       position: absolute;
       z-index: -3;
 
-      width: 100%;
-      height: 100%;
+      width: inherit;
+      height: inherit;
 
       background: var(--system-color-dark)
         url("./assets/parallax-picture-back.webp")
@@ -209,8 +209,8 @@ body {
       position: absolute;
       z-index: -1;
 
-      width: 100%;
-      height: 100%;
+      width: inherit;
+      height: inherit;
 
       background: var(--system-color-filter);
       mix-blend-mode: screen;
