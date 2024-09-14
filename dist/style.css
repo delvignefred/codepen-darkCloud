@@ -31,8 +31,8 @@ body {
 
   overflow: hidden;
 
-  height: 100dvh;
-  width: 100dvw;
+  inline-size: 100dvw;
+  block-size: 100dvh;
 
   background: var(--system-color-dark);
 
