@@ -167,16 +167,16 @@ body {
   & .parallax {
     position: absolute;
 
-    inline-size: inherit;
-    block-size: inherit;
+    inline-size: 100%;
+    block-size: 100%;
 
     & .parallax__scenery-1 {
       position: absolute;
 
       z-index: -2;
 
-      inline-size: inherit;
-      block-size: inherit;
+      inline-size: 100%;
+      block-size: 100%;
 
       background: var(--system-color-dark)
         url("./assets/parallax-picture-front.webp")
@@ -192,8 +192,8 @@ body {
       position: absolute;
       z-index: -3;
 
-      inline-size: inherit;
-      block-size: inherit;
+      inline-size: 100%;
+      block-size: 100%;
 
       background: var(--system-color-dark)
         url("./assets/parallax-picture-back.webp")
@@ -209,8 +209,8 @@ body {
       position: absolute;
       z-index: -1;
 
-      inline-size: inherit;
-      block-size: inherit;
+      inline-size: 100%;
+      block-size: 100%;
 
       background: var(--system-color-filter);
       mix-blend-mode: screen;
