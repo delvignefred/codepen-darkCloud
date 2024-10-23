@@ -1,14 +1,14 @@
 :root {
-  --system-color-bolts: hsla(240, 100%, 91%, 1);
+  --system-color-bolts: hsla(240, 0%, 91%, 1);
   --system-color-dark: hsla(0, 0%, 0%, 1);
-  --system-color-eyes: hsla(26, 100%, 40%, 1);
-  --system-color-filter: hsla(207, 66%, 32%, 0.1);
-  --system-color-flash: hsla(240, 100%, 91%, 0.3);
-  --system-color-glow: hsla(210, 1%, 90%, 1);
+  --system-color-eyes: hsla(26, 0%, 40%, 1);
+  --system-color-filter: hsla(207, 0%, 32%, 0.1);
+  --system-color-flash: hsla(240, 0%, 91%, 0.3);
+  --system-color-glow: hsla(210, 0%, 90%, 1);
   --system-color-light: hsla(0, 0%, 100%, 1);
-  --system-color-stroke: hsla(340, 6%, 13%, 1);
-  --system-color-tongue: hsla(345, 42%, 65%, 1);
-  --system-color-twinkle: hsla(180, 100%, 88%, 0.5);
+  --system-color-stroke: hsla(340, 0%, 13%, 1);
+  --system-color-tongue: hsla(345, 0%, 65%, 1);
+  --system-color-twinkle: hsla(180, 0%, 88%, 0.5);
 }
 
 *,
@@ -35,9 +35,6 @@ body {
   block-size: 100dvh;
 
   background: var(--system-color-dark);
-
-  -webkit-filter: grayscale(1);
-  filter: grayscale(1);
 
   -moz-image-rendering: auto;
   -ms-image-rendering: auto;
